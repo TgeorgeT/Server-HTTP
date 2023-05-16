@@ -14,26 +14,7 @@
 
 #define WEBROOT "./pagini"
 
-int recv_line(int sockfd, unsigned char *dest_buffer){
-    #define EOL "\r\n"
-    #define EOL_SIZE 2
-    unsigned char *ptr;
-    int eol_matched = 0;
-    ptr = dest_buffer;
-    while(recv(sockfd, ptr, 1, 0) == 1) { // Read a single byte.
-        if(*ptr == EOL[eol_matched]) { // Does this byte match terminator?
-            eol_matched++;
-                if(eol_matched == EOL_SIZE) { // If all bytes match terminator,
-                    *(ptr+1-EOL_SIZE) = '\0'; // terminate the string.
-                    return strlen(dest_buffer); // Return bytes recevied.
-                }
-        } else {
-            eol_matched = 0;
-        }
-    ptr++; // Increment the pointer to the next byte.
-    }
-    return 0; // Didn't find the end-of-line characters.
-}
+
 
 
 
