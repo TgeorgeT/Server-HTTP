@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import sys
+import os
+from subprocess import call
+import signal
+
+if __name__ == "__main__":
+    with open("/home/george/Server/conf.txt", "r") as f:
+        pid_file = f.readline().strip().split(":")[1]
+    command = sys.argv[1]
+    if command == "stop":
+        os.system("kill -9 `cat "+pid_file+"`")
+    elif command == "start":
+        os.system("/home/george/Server/src/inetd")
+    elif command == "reload":
+        with open(pid_file, "r") as f:
+            pid = f.readline()
+            os.kill(int(pid), signal.SIGHUP)
+    
+        
+
+
