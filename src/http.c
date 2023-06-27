@@ -198,4 +198,3 @@ int main(int argc, char *argv[])
     close(2);
     exit(0);
 }
-

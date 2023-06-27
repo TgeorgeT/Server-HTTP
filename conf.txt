@@ -1,2 +1,2 @@
 pid_file:/var/run/1213
-webroot:/home/george/Server/test
+webroot:/home/george/Server/pagini

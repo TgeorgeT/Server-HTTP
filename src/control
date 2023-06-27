@@ -12,11 +12,11 @@ if __name__ == "__main__":
     if command == "stop":
         os.system("kill -9 `cat "+pid_file+"`")
     elif command == "start":
-        os.system("/home/george/Server/src/inetd")
-    elif command == "reload":
-        with open(pid_file, "r") as f:
-            pid = f.readline()
-            os.kill(int(pid), signal.SIGHUP)
+        os.system("/home/george/Server/bin/inetd")
+    # elif command == "reload":
+    #     with open(pid_file, "r") as f:
+    #         pid = f.readline()
+    #         os.kill(int(pid), signal.SIGHUP)
     
         
 
